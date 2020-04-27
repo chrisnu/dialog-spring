@@ -5,6 +5,7 @@ import lombok.Setter;
 import nl.dialog.model.entities.SoftDeletable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.List;
 
@@ -18,10 +19,12 @@ public class Project extends SoftDeletable {
 
     @Getter
     @Column(nullable = false)
+    @NotNull
     private String code;
 
     @Getter
     @Column(nullable = false)
+    @NotNull
     private String name;
 
     @Getter
@@ -30,7 +33,8 @@ public class Project extends SoftDeletable {
 
     @Getter
     @ManyToOne
-    private Customer customer;
+    @NotNull
+    private Customer customers;
 
     @Getter
     @OneToOne
@@ -43,7 +47,7 @@ public class Project extends SoftDeletable {
     @Getter
     @Setter
     @OneToMany(
-            mappedBy = "project",
+            mappedBy = "projects",
             cascade = CascadeType.ALL
     )
     private List<ProjectModule> modules;

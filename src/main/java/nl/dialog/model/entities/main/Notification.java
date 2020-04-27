@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 
 @Entity(name = "Notification")
@@ -16,10 +17,12 @@ public class Notification {
 
     @Getter
     @Column(nullable = false, columnDefinition = "TEXT")
+    @NotNull
     private String data;
 
     @Getter
     @Column(nullable = false)
+    @NotNull
     private Calendar timestamp;
 
     @Getter
@@ -29,10 +32,12 @@ public class Notification {
     @Getter
     @Setter
     @OneToOne
-    private Project project;
+    @NotNull
+    private Project projects;
 
     @Getter
     @Setter
     @OneToOne
-    private User user;
+    @NotNull
+    private User users;
 }

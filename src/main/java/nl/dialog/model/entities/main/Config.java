@@ -3,10 +3,8 @@ package nl.dialog.model.entities.main;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "Config")
 @Table(name = "configs")
@@ -18,6 +16,12 @@ public class Config {
 
     @Getter
     @Setter
+    @Column
+    private String defaultMap;
+
+    @Getter
+    @Setter
     @ManyToOne
-    private Project project;
+    @NotNull
+    private Project projects;
 }

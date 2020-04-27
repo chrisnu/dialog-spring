@@ -3,10 +3,8 @@ package nl.dialog.model.entities.main;
 import lombok.Getter;
 import org.springframework.data.geo.Point;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "Address")
 @Table(name = "addresses")
@@ -61,6 +59,7 @@ public class Address {
     private Double latitude;
 
     @Getter
-    @Column
+    @Column(nullable = false)
+    @NotNull
     private Point coordinates;
 }

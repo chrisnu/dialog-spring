@@ -5,9 +5,10 @@ import lombok.Setter;
 import nl.dialog.model.entities.SoftDeletable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Entity(name = "User")
+@Entity(name = "Users")
 @Table(name = "users")
 public class User extends SoftDeletable {
 
@@ -17,10 +18,12 @@ public class User extends SoftDeletable {
 
     @Getter
     @Column(nullable = false)
+    @NotNull
     private String name;
 
     @Getter
     @Column(nullable = false)
+    @NotNull
     private String email;
 
     @Getter

@@ -21,7 +21,7 @@ public class Permission {
     private PermissionType permission;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, name = "`GROUP`")
     @NotNull
-    private PermissionGroup group;
+    private PermissionGroup permissionGroup;
 }

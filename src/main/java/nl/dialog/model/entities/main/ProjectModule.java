@@ -17,15 +17,15 @@ public class ProjectModule {
 
     @Getter
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId(value = "projectId")
+    @MapsId(value = "projectsId")
     @NotNull
-    private Project project;
+    private Project projects;
 
     @Getter
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId(value = "moduleId")
+    @MapsId(value = "modulesId")
     @NotNull
-    private Module module;
+    private Module modules;
 
     @Getter
     @Setter
@@ -37,10 +37,10 @@ public class ProjectModule {
 class ProjectModuleId implements Serializable {
 
     @Column
-    private Integer projectId;
+    private Integer projectsId;
 
     @Column
-    private Integer moduleId;
+    private Integer modulesId;
 
     @Override
     public boolean equals(Object o) {
@@ -50,12 +50,12 @@ class ProjectModuleId implements Serializable {
             return false;
 
         ProjectModuleId that = (ProjectModuleId) o;
-        return Objects.equals(moduleId, that.moduleId) &&
-                Objects.equals(projectId, that.projectId);
+        return Objects.equals(modulesId, that.modulesId) &&
+                Objects.equals(projectsId, that.projectsId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(moduleId, projectId);
+        return Objects.hash(modulesId, projectsId);
     }
 }
