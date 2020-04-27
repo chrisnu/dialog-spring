@@ -14,14 +14,17 @@ public class Permit {
 
     @ManyToOne
     @NotNull
+    @MapsId("permissionId")
     Permission permission;
 
     @ManyToOne
     @NotNull
+    @MapsId("projectId")
     Project project;
 
     @ManyToOne
     @NotNull
+    @MapsId("userId")
     Project user;
 }
 
